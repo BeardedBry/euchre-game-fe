@@ -1,24 +1,38 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 function App() {
+
+  const users = [
+    {name: 'user1'},
+    {name: 'user2'},
+    {name: 'user3'},
+    {name: 'user4'},
+    {name: 'user5'},
+  ];
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div id="ChatScreen">
+      <h1>Euchre</h1>
+      <div id="Users">
+        <ul>
+        {users.map((user)=>{
+          return (<li>{user.name}</li>);
+        })}
+        </ul>
+      </div>
+      <div id="Chat">
+        <div id="Chat-Message-Feed">
+          <p>Some message.</p>          
+        </div>
+        <div id="Chat-Message-Input">
+          <form>
+            <input></input>
+            <button>Submit</button>
+          </form>
+        </div>
+      </div>
     </div>
   );
 }
