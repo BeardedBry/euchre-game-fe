@@ -1,10 +1,15 @@
 import React from 'react';
 import './App.css';
+import Sidebar from './components/Sidebar';
+import MessagePane from './components/MessagePane';
+import MessageInput from './components/MessageInput';
 
 function App() {
 
   const users = [
-    {name: 'user1'},
+    {
+      name: 'Brian',
+    },
     {name: 'user2'},
     {name: 'user3'},
     {name: 'user4'},
@@ -13,25 +18,16 @@ function App() {
 
 
   return (
-    <div id="ChatScreen">
-      <h1>Euchre</h1>
-      <div id="Users">
-        <ul>
-        {users.map((user)=>{
-          return (<li>{user.name}</li>);
-        })}
-        </ul>
+    <div id="Main">
+      <div id="Sidebar" className="col">
+        <Sidebar users={users}/>
       </div>
-      <div id="Chat">
-        <div id="Chat-Message-Feed">
-          <p>Some message.</p>          
-        </div>
-        <div id="Chat-Message-Input">
-          <form>
-            <input></input>
-            <button>Submit</button>
-          </form>
-        </div>
+      <div id="Chat" className="col">
+        <MessagePane/>
+        <MessageInput/>
+      </div>
+      <div id="Games" className="col">
+        Game list
       </div>
     </div>
   );
